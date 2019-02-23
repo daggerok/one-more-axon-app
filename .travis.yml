@@ -1,0 +1,18 @@
+language: jvm
+jdk: openjdk8
+env:
+  global:
+    secure: SHoU1ZT+h4OKKaffRGkhylSK+Va2Iyp7IEzMIHcfEg/aJBt2gWOcPG3LN/gBPGNtmuN/j9zes2FyRvSycoQgsZgpJGUTWrB9GQAsLEUtoNHm89ZdHNnvLsM93tOJU/E9oG+OEj4Jo6PK27gwtCG3KcyHIOErNYDCqW1P3fOssr818UwgqG1Oc3ULuRgKJueug6t0Eu5Fw3pRXRHk3bCkBYXlySzY6mb1cJBYsUw5Q6/avQSlkmh0znKw86cQufthqbGUr3eVo4l5F59qzDfGoR57VNrdOcT6TzFToRCNMzSuSkSKeXhJ1YcZWRzmVDr+eFiwMWSf4morrIwjBoOI5HlPxmttuNfA1dOVaOw4HS2R7HHo/oaNxzGIyVbnGAReDaWAePhltGivvd5gy/+igXScbf/dcxPScLc+WHpY1HpVUo3F8wl7VSbH6uNcIJaH26GVs8KMasDHI5py6wvum5HiB1bwA/iiXyi8Nfu7i3AZGo6UlFI4NiPyfi1FUu/cZaxFv2c18dgh5OmXGufkp+VJc09VYVvco/2NrkoH16ofQrBWnnQcHiK6GRP+HJzOsXAIxBMaCLsA1pfoDUN9v9DuuqIq2qzwh+3vwRAdV1v4AdauY1kBKNwMgJjSdR9m+dTRSQETizzw4mX1tGguPDtW4TtMF1vlWx0bLpHrfyg=
+node_js: lts/*
+install: true
+script: ./mvnw
+before_deploy:
+  - npm i ; npm run gh-pages
+deploy:
+  provider: pages
+  skip-cleanup: true
+  local_dir: docs/.vuepress/dist
+  github-token: $GITHUB_TOKEN
+  keep-history: true
+  on:
+    branch: master

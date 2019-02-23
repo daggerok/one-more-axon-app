@@ -1,0 +1,13 @@
+version: '2.1'
+networks:
+  one-more-axon-app:
+    driver: bridge
+services:
+  axon-server:
+    image: axoniq/axonserver:4.0.3
+    networks: [one-more-axon-app]
+    ports:
+      - '8024:8024'
+      - '8124:8124'
+    healthcheck:
+      test: curl -f http://127.0.0.1:8024/v1/public || exit 1

@@ -1,0 +1,29 @@
+node_modules/
+package-lock.json
+.vuepress/dist/
+axon-app/HELP.md
+/target/
+out/
+*.log*
+build/
+.DS_Store
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+/build/

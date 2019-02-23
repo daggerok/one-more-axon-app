@@ -1,0 +1,20 @@
+version: '2.1'
+networks:
+  one-more-axon-app:
+    driver: bridge
+services:
+  axon-server:
+    extends:
+      service: axon-server
+      file: ../axon-server/docker-compose.yaml
+  postgres:
+    extends:
+      service: postgres
+      file: ../postgres/docker-compose.yaml
+  docker-compose-maven-plugin-healthcheck-waiting-container:
+    image: busybox
+    depends_on:
+      axon-server:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy

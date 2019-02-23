@@ -1,0 +1,27 @@
+{
+  "name": "one-more-axon-app",
+  "version": "1.0.0-SNAPSHOT",
+  "description": "One more AxonFramework/Server application example project documentation",
+  "main": "README.md",
+  "scripts": {
+    "start": "vuepress dev",
+    "build": "vuepress build",
+    "gh-pages": "cross-env BASE_HREF='/one-more-axon-app/' vuepress build ."
+  },
+  "keywords": [
+    "vuepress",
+    "spring-boot",
+    "postgres",
+    "h2",
+    "axon",
+    "axon-server",
+    "axon-framework",
+    "docker-compose-maven-plugin"
+  ],
+  "author": "Maksim Kostromin https://gituhub.com/daggerok/",
+  "license": "MIT",
+  "devDependencies": {
+    "cross-env": "5.2.0",
+    "vuepress": "0.14.8"
+  }
+}

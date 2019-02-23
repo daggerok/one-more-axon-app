@@ -1,0 +1,18 @@
+version: '2.1'
+networks:
+  one-more-axon-app:
+    driver: bridge
+services:
+  postgres:
+    image: postgres:11.2-alpine
+    networks: [one-more-axon-app]
+    ports: ['5432:5432']
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      PGDATA: /var/lib/postgresql/data
+      POSTGRES_INITDB_ARGS: --data-checksums
+      POSTGRES_INITDB_WALDIR: /var/lib/postgresql/transactional-log
+    healthcheck:
+      test: pg_isready -h 127.0.0.1 -p 5432 -d $$POSTGRES_DB -U $$POSTGRES_USER
