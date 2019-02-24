@@ -1,4 +1,4 @@
-package com.github.daggerok.axon.api
+package com.github.daggerok.giftcard.api
 
 import org.axonframework.modelling.command.TargetAggregateIdentifier
 import java.util.*

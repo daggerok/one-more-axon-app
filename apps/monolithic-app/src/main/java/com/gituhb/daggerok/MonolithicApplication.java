@@ -4,9 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class AxonAppApplication {
+public class MonolithicApplication {
 
   public static void main(String[] args) {
-    SpringApplication.run(AxonAppApplication.class, args);
+    SpringApplication.run(MonolithicApplication.class, args);
   }
 }

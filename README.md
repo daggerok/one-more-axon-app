@@ -31,6 +31,14 @@ bash ./apps/monolithic-less-app/target/*.jar \
         --server.port=0 --spring.profiles.active=client
 ```
 
+### run micro apps
+
+```bash
+./mvnw
+bash ./apps/micro-command-app/target/*.jar
+bash ./apps/micro-query-client-app/target/*.jar
+```
+
 ### cleanup
 
 ```bash

@@ -1,8 +1,8 @@
 package com.gituhb.daggerok.giftcard.client;
 
-import com.github.daggerok.axon.api.GiftCardSummaryQuery;
-import com.github.daggerok.axon.api.IssueCmd;
-import com.github.daggerok.axon.api.RedeemCmd;
+import com.github.daggerok.giftcard.api.GiftCardSummaryQuery;
+import com.github.daggerok.giftcard.api.IssueCmd;
+import com.github.daggerok.giftcard.api.RedeemCmd;
 import com.gituhb.daggerok.giftcard.query.GiftCardSummary;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -43,15 +43,6 @@ public class GiftCardRunner implements CommandLineRunner {
                                                 ResponseTypes.instanceOf(GiftCardSummary.class))
                                          .join();
     log.info("summary: {}", result);
- /*
-    queryGateway.query(GiftCardSummaryQuery.of(id), GiftCardSummary.class)
-                .thenAccept(giftCardSummary -> log.info("query: {}", giftCardSummary))
-                .exceptionally(throwable -> {
-                  log.error("oops: {}", throwable.getLocalizedMessage(), throwable);
-                  return null;
-                })
-                .get(3, TimeUnit.SECONDS);
-*/
     System.exit(0);
   }
 }

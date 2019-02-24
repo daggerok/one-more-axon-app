@@ -10,7 +10,7 @@
   </parent>
 
   <modelVersion>4.0.0</modelVersion>
-  <name>${parent.artifactId}:${project.artifactId}</name>
+  <name>${project.parent.artifactId}:${project.artifactId}</name>
   <groupId>com.github.daggerok.modules</groupId>
   <artifactId>api</artifactId>
 

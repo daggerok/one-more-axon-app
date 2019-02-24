@@ -15,6 +15,7 @@
   <packaging>pom</packaging>
 
   <modules>
+    <module>parent-micro-app</module>
     <module>api</module>
   </modules>
 

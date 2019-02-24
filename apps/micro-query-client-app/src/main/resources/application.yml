@@ -1,5 +1,5 @@
 spring:
-  application.name: monolithic-app
+  application.name: micro-query-client-app
   output.ansi.enabled: always
   datasource:
     url: jdbc:postgresql://127.0.0.1:5432/postgres

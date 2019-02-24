@@ -1,9 +1,9 @@
 package com.gituhb.daggerok.giftcard.command;
 
-import com.github.daggerok.axon.api.IssueCmd;
-import com.github.daggerok.axon.api.IssuedEvt;
-import com.github.daggerok.axon.api.RedeemCmd;
-import com.github.daggerok.axon.api.RedeemedEvt;
+import com.github.daggerok.giftcard.api.IssueCmd;
+import com.github.daggerok.giftcard.api.IssuedEvt;
+import com.github.daggerok.giftcard.api.RedeemCmd;
+import com.github.daggerok.giftcard.api.RedeemedEvt;
 import lombok.NoArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.axonframework.commandhandling.CommandHandler;

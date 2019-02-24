@@ -17,9 +17,8 @@
   <modules>
     <module>monolithic-app</module>
     <module>monolithic-less-app</module>
-    <!--<module>micro-command-app</module>-->
-    <!--<module>micro-client-app</module>-->
-    <!--<module>micro-query-app</module>-->
+    <module>micro-command-app</module>
+    <module>micro-query-client-app</module>
   </modules>
 
 </project>

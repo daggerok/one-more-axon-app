@@ -1,0 +1,11 @@
+spring:
+  application.name: micro-command-app
+  output.ansi.enabled: always
+  main:
+    allow-bean-definition-overriding: true
+logging:
+  level:
+    com.github.daggerok: DEBUG
+axon:
+  axonserver:
+    servers: 127.0.0.1:8124

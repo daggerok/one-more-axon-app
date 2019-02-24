@@ -1,5 +1,5 @@
 spring:
-  application.name: ${spring.profiles.active}-monolithic-less-app
+  application.name: ${spring.profiles.active}-micro-monolithic-app
   output.ansi.enabled: always
   datasource:
     url: jdbc:postgresql://127.0.0.1:5432/postgres

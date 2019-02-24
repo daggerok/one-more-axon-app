@@ -1,9 +1,9 @@
 package com.gituhb.daggerok.giftcard.query;
 
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -19,16 +19,12 @@ import static lombok.AccessLevel.PROTECTED;
 public class GiftCardSummary {
 
   @Id
-  @Setter(PROTECTED)
   @Column(nullable = false)
   UUID id;
 
-  @Setter(PROTECTED)
   @Column(nullable = false)
   int initialValue;
 
-  @Setter(PROTECTED)
   @Column(nullable = false)
   int remainingValue;
 }
-
