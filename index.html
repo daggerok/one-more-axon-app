@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <link rel="icon" href="/one-more-axon-app/favicon.ico">
     
-    <link rel="preload" href="/one-more-axon-app/assets/css/0.styles.1e9fdae6.css" as="style"><link rel="preload" href="/one-more-axon-app/assets/js/app.94c2f707.js" as="script"><link rel="preload" href="/one-more-axon-app/assets/js/3.44d92097.js" as="script"><link rel="prefetch" href="/one-more-axon-app/assets/js/2.7974f97d.js"><link rel="prefetch" href="/one-more-axon-app/assets/js/4.0841cf35.js">
+    <link rel="preload" href="/one-more-axon-app/assets/css/0.styles.1e9fdae6.css" as="style"><link rel="preload" href="/one-more-axon-app/assets/js/app.ac21ba66.js" as="script"><link rel="preload" href="/one-more-axon-app/assets/js/3.0f69a5d4.js" as="script"><link rel="prefetch" href="/one-more-axon-app/assets/js/2.7974f97d.js"><link rel="prefetch" href="/one-more-axon-app/assets/js/4.0841cf35.js">
     <link rel="stylesheet" href="/one-more-axon-app/assets/css/0.styles.1e9fdae6.css">
   </head>
   <body>
@@ -28,9 +28,12 @@
 <span class="token function">bash</span> ./apps/monolithic-less-app/target/*.jar \
         --server.application.name<span class="token operator">=</span>monolithic-less-client-app \
         --server.port<span class="token operator">=</span>0 --spring.profiles.active<span class="token operator">=</span>client
+</code></pre></div><h3 id="run-micro-apps"><a href="#run-micro-apps" aria-hidden="true" class="header-anchor">#</a> run micro apps</h3> <div class="language-bash extra-class"><pre class="language-bash"><code>./mvnw
+<span class="token function">bash</span> ./apps/micro-command-app/target/*.jar
+<span class="token function">bash</span> ./apps/micro-query-client-app/target/*.jar
 </code></pre></div><h3 id="cleanup"><a href="#cleanup" aria-hidden="true" class="header-anchor">#</a> cleanup</h3> <div class="language-bash extra-class"><pre class="language-bash"><code>./mvnw -f docker/axon-postgres/pom.xml -P down
 </code></pre></div><h2 id="build-vuepress-documentation"><a href="#build-vuepress-documentation" aria-hidden="true" class="header-anchor">#</a> build VuePress documentation</h2> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">npm</span> i <span class="token punctuation">;</span> <span class="token function">npm</span> run build
-</code></pre></div></div> <div class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated: </span> <span class="time">2/24/2019, 5:15:19 AM</span></div></div> <!----> </div> <!----></div></div>
-    <script src="/one-more-axon-app/assets/js/app.94c2f707.js" defer></script><script src="/one-more-axon-app/assets/js/3.44d92097.js" defer></script>
+</code></pre></div></div> <div class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated: </span> <span class="time">2/24/2019, 7:28:48 AM</span></div></div> <!----> </div> <!----></div></div>
+    <script src="/one-more-axon-app/assets/js/app.ac21ba66.js" defer></script><script src="/one-more-axon-app/assets/js/3.0f69a5d4.js" defer></script>
   </body>
 </html>
