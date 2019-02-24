@@ -1,3 +1,6 @@
+sudo: required
+services:
+  - docker
 language: jvm
 jdk: openjdk8
 env:
@@ -5,13 +8,58 @@ env:
     secure: SHoU1ZT+h4OKKaffRGkhylSK+Va2Iyp7IEzMIHcfEg/aJBt2gWOcPG3LN/gBPGNtmuN/j9zes2FyRvSycoQgsZgpJGUTWrB9GQAsLEUtoNHm89ZdHNnvLsM93tOJU/E9oG+OEj4Jo6PK27gwtCG3KcyHIOErNYDCqW1P3fOssr818UwgqG1Oc3ULuRgKJueug6t0Eu5Fw3pRXRHk3bCkBYXlySzY6mb1cJBYsUw5Q6/avQSlkmh0znKw86cQufthqbGUr3eVo4l5F59qzDfGoR57VNrdOcT6TzFToRCNMzSuSkSKeXhJ1YcZWRzmVDr+eFiwMWSf4morrIwjBoOI5HlPxmttuNfA1dOVaOw4HS2R7HHo/oaNxzGIyVbnGAReDaWAePhltGivvd5gy/+igXScbf/dcxPScLc+WHpY1HpVUo3F8wl7VSbH6uNcIJaH26GVs8KMasDHI5py6wvum5HiB1bwA/iiXyi8Nfu7i3AZGo6UlFI4NiPyfi1FUu/cZaxFv2c18dgh5OmXGufkp+VJc09VYVvco/2NrkoH16ofQrBWnnQcHiK6GRP+HJzOsXAIxBMaCLsA1pfoDUN9v9DuuqIq2qzwh+3vwRAdV1v4AdauY1kBKNwMgJjSdR9m+dTRSQETizzw4mX1tGguPDtW4TtMF1vlWx0bLpHrfyg=
 node_js: lts/*
 install: true
-script: ./mvnw
+addons:
+  apt:
+    packages:
+      - sudo
+      - lsof
+      - wget
+      - bash
+      - curl
+      - jq
+      - unzip
+      - docker-ce
+      - python-pip
+before_install:
+  - sudo pip install docker-compose httpie >/dev/null 2>&1
+  - source <(curl -s https://raw.githubusercontent.com/daggerok/bash-functions/master/main.bash)
+  - stop_any 80 5432
+script:
+  - ./mvnw -f docker/axon-postgres/pom.xml -P up >/dev/null
+  - ./mvnw >/dev/null
+  #
+  - bash ./apps/monolithic-app/target/*.jar
+  - sleep 5s
+  #
+  - bash ./apps/monolithic-less-app/target/*.jar
+            --server.application.name=monolithic-less-query-app
+            --server.port=8001 --spring.profiles.active=query &
+  - sleep 10s
+  #
+  - bash ./apps/monolithic-less-app/target/*.jar
+            --server.application.name=monolithic-less-command-app
+            --server.port=8002 --spring.profiles.active=command &
+  - sleep 10s
+  #
+  - bash ./apps/monolithic-less-app/target/*.jar
+            --server.application.name=monolithic-less-client-app
+            --server.port=8003 --spring.profiles.active=client
+  - sleep 5s
+  - sudo killall -9 java || true
+cache:
+  packages: true
+  npm: true
+  directories:
+    - ~/.m2/
+    - ~/.docker/
+    - ./node_modules/
+    - ~/.npm/
 before_deploy:
   - npm i ; npm run gh-pages
 deploy:
   provider: pages
   skip-cleanup: true
-  local_dir: docs/.vuepress/dist
+  local_dir: ./.vuepress/dist
   github-token: $GITHUB_TOKEN
   keep-history: true
   on:

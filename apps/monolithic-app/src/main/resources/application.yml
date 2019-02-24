@@ -1,0 +1,33 @@
+
+spring:
+  application.name: my-monolithic-app
+  output.ansi.enabled: always
+  datasource:
+    url: jdbc:postgresql://127.0.0.1:5432/postgres
+    name: postgres
+    username: postgres
+    password: postgres
+    hikari:
+      connection-test-query: 'SELECT 1'
+  jpa:
+    #show-sql: true
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create-drop
+    #https://my-blog.now.sh/posts/2019/02/23/Method-PgConnection-createClob-is-not-yet-implemented.html
+    properties:
+      hibernate:
+        temp:
+          use_jdbc_metadata_defaults: false
+  main:
+    allow-bean-definition-overriding: true
+logging:
+  level:
+    com.github.daggerok: DEBUG
+axon:
+  axonserver:
+    servers: 127.0.0.1:8124
+management:
+  endpoint:
+    shutdown:
+      enabled: true

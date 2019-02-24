@@ -2,7 +2,7 @@ node_modules/
 package-lock.json
 .vuepress/dist/
 axon-app/HELP.md
-/target/
+target/
 out/
 *.log*
 build/

@@ -23,6 +23,8 @@
 
   <modules>
     <module>docker</module>
+    <module>modules</module>
+    <module>apps</module>
   </modules>
 
   <build>
